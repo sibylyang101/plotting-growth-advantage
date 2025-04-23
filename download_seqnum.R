@@ -9,7 +9,6 @@ library(RColorBrewer)
 library(ggthemes)
 library(scales)
 
-# source('/Users/sibyl/Desktop/XieLab/2022/utils.R')
 theme_set(theme_cowplot())
 
 #######################
@@ -35,7 +34,6 @@ jsonfile2DF = function(path,keep_country = F){
 #######################
 #### from cov-spectrum
 #######################
-setwd('/Users/sibyl/Desktop/XieLab/05_model/GA_plot/plotting_growth_advantage/results')
 date_from <- '2024-01-01'
 # save_date = Sys.Date()
 save_date = '2024-12-17'
@@ -57,7 +55,7 @@ for(strain_i in strains){
                 '&nextcladePangoLineage=',strain_i,'*',
                 # '&aminoAcidMutations=',aamut,
                 # '&country=',country,
-                '&host=Human&accessKey=9Cb3CqmrFnVjO3XCxQLO6gUnKPd&fields=date' # %2Ccountry
+                '&host=Human&accessKey=KEY&fields=date' # %2Ccountry
                 # '&dataVersion=',data_version
   )
   print(query)
@@ -70,7 +68,7 @@ for(strain_i in strains){
 query = str_c('https://lapis.cov-spectrum.org/gisaid/v2/sample/aggregated?', #v2
               'dateFrom=',date_from,
               # '&country=',country,
-              '&host=Human&accessKey=9Cb3CqmrFnVjO3XCxQLO6gUnKPd&fields=date' # %2Ccountry
+              '&host=Human&accessKey=KEY&fields=date' # %2Ccountry
               # '&dataVersion=',data_version
 )
 download.file(query,paste0('all','_',save_date,'.json'), method='wget')
